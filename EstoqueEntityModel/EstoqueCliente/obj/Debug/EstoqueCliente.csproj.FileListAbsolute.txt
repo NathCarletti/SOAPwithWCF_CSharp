@@ -1,0 +1,6 @@
+C:\Users\rodrigo\Documents\Pos\DM113\SOAPwithWCF_CSharp\EstoqueEntityModel\EstoqueCliente\bin\Debug\EstoqueCliente.exe.config
+C:\Users\rodrigo\Documents\Pos\DM113\SOAPwithWCF_CSharp\EstoqueEntityModel\EstoqueCliente\bin\Debug\EstoqueCliente.exe
+C:\Users\rodrigo\Documents\Pos\DM113\SOAPwithWCF_CSharp\EstoqueEntityModel\EstoqueCliente\bin\Debug\EstoqueCliente.pdb
+C:\Users\rodrigo\Documents\Pos\DM113\SOAPwithWCF_CSharp\EstoqueEntityModel\EstoqueCliente\obj\Debug\EstoqueCliente.csproj.CoreCompileInputs.cache
+C:\Users\rodrigo\Documents\Pos\DM113\SOAPwithWCF_CSharp\EstoqueEntityModel\EstoqueCliente\obj\Debug\EstoqueCliente.exe
+C:\Users\rodrigo\Documents\Pos\DM113\SOAPwithWCF_CSharp\EstoqueEntityModel\EstoqueCliente\obj\Debug\EstoqueCliente.pdb

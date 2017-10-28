@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ServiceModel;
-using ProvedorEstoqueHost;
+using Products;
 
 
 
@@ -14,13 +14,13 @@ namespace ProvedorEstoqueHost
     {
         static void Main(string[] args)
         {
-            /*  ServiceHost productsServiceHost = new ServiceHost(typeof(ProvedorEstoqueHost));
-              productsServiceHost.Open();
-              Console.WriteLine("Service Running");
-              Console.ReadLine();
-              Console.WriteLine("Service StoStopping");
-              productsServiceHost.Close();
-          }*/
+            ServiceHost productsServiceHost = new ServiceHost(typeof(ServiceEstoque));
+            productsServiceHost.Open();
+            Console.WriteLine("Service Running");
+            Console.ReadLine();
+            Console.WriteLine("Service StoStopping");
+            productsServiceHost.Close();
+
         }
     }
 }

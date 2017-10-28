@@ -32,6 +32,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProvedorEstoqueHost", "Prov
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EstoqueLibrary", "EstoqueLibrary\EstoqueLibrary.csproj", "{A0479F5C-5AA0-4572-A72E-94A9A6B048EF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EstoqueCliente", "EstoqueCliente\EstoqueCliente.csproj", "{831255CB-B887-4382-ACA5-33B6662BED4E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C7B92EFB-5358-4BAF-96C8-B6BD82CAB2FC} = {C7B92EFB-5358-4BAF-96C8-B6BD82CAB2FC}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -54,6 +59,10 @@ Global
 		{A0479F5C-5AA0-4572-A72E-94A9A6B048EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0479F5C-5AA0-4572-A72E-94A9A6B048EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0479F5C-5AA0-4572-A72E-94A9A6B048EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{831255CB-B887-4382-ACA5-33B6662BED4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{831255CB-B887-4382-ACA5-33B6662BED4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{831255CB-B887-4382-ACA5-33B6662BED4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{831255CB-B887-4382-ACA5-33B6662BED4E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

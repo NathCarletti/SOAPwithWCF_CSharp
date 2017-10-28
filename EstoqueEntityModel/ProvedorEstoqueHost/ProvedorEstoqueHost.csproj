@@ -62,6 +62,10 @@
       <Project>{a23f5e70-edec-4e40-8913-7f5dfb1a8e80}</Project>
       <Name>EstoqueEntityModel</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EstoqueLibrary\EstoqueLibrary.csproj">
+      <Project>{a0479f5c-5aa0-4572-a72e-94a9a6b048ef}</Project>
+      <Name>EstoqueLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
