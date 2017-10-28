@@ -29,27 +29,29 @@ namespace Products
     public interface IServiceEstoque
     {
         // Get all products
-        //[OperationContract]
-        List<string> ListProducts();
+        [OperationContract]
+        List<ProductData> ListProducts();
 
         [OperationContract]
-        ProductData GetNumeroProduto(string NumeroProduto);
-        [OperationContract]
-        void SetNumeroProduto(string NumeroProduto);
+        bool IncluirProduto(ProductData productData);
 
         [OperationContract]
-        ProductData GetNomeProduto(string NomeProduto);
-        [OperationContract]
-        void SetNomeProduto(string NomeProduto);
+        bool RemoverProduto(string NumeroProduto);
 
         [OperationContract]
-        ProductData GetDescricaoProduto(string DescricaoProduto);
-        [OperationContract]
-        void SetDescricaoProduto(string DescricaoProduto);
+        int ConsultarEstoque(string NumeroProduto);
 
         [OperationContract]
-        ProductData GetEstoqueProduto(int EstoqueProduto);
+        bool AdicionarEstoque(string NumeroProduto, int quantidade);
+
         [OperationContract]
-        void SetEstoqueProduto(int EstoqueProduto);
+        bool RemoverEstoque(string NumeroProduto, int quantidade);
+
+        [OperationContract]
+        ProductData VerProduto(string NumeroProduto);
+
+
     }
+
 }
+

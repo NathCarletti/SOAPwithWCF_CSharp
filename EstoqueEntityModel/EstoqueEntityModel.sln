@@ -28,6 +28,10 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "ServiceEstoque", "ServiceEs
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProvedorEstoqueHost", "ProvedorEstoqueHost\ProvedorEstoqueHost.csproj", "{E98C7C8E-CFE6-4769-A994-32852F7C6F5A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EstoqueLibrary", "EstoqueLibrary\EstoqueLibrary.csproj", "{A0479F5C-5AA0-4572-A72E-94A9A6B048EF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +46,14 @@ Global
 		{C7B92EFB-5358-4BAF-96C8-B6BD82CAB2FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C7B92EFB-5358-4BAF-96C8-B6BD82CAB2FC}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{C7B92EFB-5358-4BAF-96C8-B6BD82CAB2FC}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{E98C7C8E-CFE6-4769-A994-32852F7C6F5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E98C7C8E-CFE6-4769-A994-32852F7C6F5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E98C7C8E-CFE6-4769-A994-32852F7C6F5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E98C7C8E-CFE6-4769-A994-32852F7C6F5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0479F5C-5AA0-4572-A72E-94A9A6B048EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0479F5C-5AA0-4572-A72E-94A9A6B048EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0479F5C-5AA0-4572-A72E-94A9A6B048EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0479F5C-5AA0-4572-A72E-94A9A6B048EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
