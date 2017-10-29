@@ -6,13 +6,20 @@ using System.Threading.Tasks;
 using System.ServiceModel;
 using EstoqueCliente.ServiceEstoque;
 
-namespace EstoqueCliente
+namespace EstoqueCliente // óia aqui"""o.o Esse serviceEstoque... isso é referencia do service... ele pediu pra referenciar a library
+    // vou te passar como mudar depois... mas seguinte, primeiro vc faz dessa forma mesmo pro segundo cliente.
+    // Agora vc cria um cliente pra V2. O que muda é que na referencia, vc vai escolher o V2
 {
     class Program
     {
         static void Main(string[] args)
         {
-            ServiceEstoqueClient proxy = new ServiceEstoqueClient();
+            Console.WriteLine("Press ENTER when the service has started");
+            Console.ReadLine();
+
+            ServiceEstoqueClient proxy = new ServiceEstoqueClient(
+                "BasicHttpBinding_IServicoEstoque"); // Esse nome tbm vai mudar no segundo cliente... né kkkkrigadakk mas enfim
+            // O nome disso muda no segundo cliente, fica "WS2007HttpBinding_IServicoEstoque", que é o que ta na apostila ta sz b
 
             Console.WriteLine("Test 1: List all products");
             List<ProductData> products = proxy.ListProducts().ToList();

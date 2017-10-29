@@ -36,4 +36,3 @@ C:\Users\rodrigo\Documents\Pos\DM113\SOAPwithWCF_CSharp\EstoqueEntityModel\Estoq
 C:\Users\rodrigo\Documents\Pos\DM113\SOAPwithWCF_CSharp\EstoqueEntityModel\EstoqueEntityModel\obj\Debug\EstoqueEntityModel.csproj.CoreCompileInputs.cache
 C:\Users\rodrigo\Documents\Pos\DM113\SOAPwithWCF_CSharp\EstoqueEntityModel\EstoqueEntityModel\obj\Debug\EstoqueEntityModel.dll
 C:\Users\rodrigo\Documents\Pos\DM113\SOAPwithWCF_CSharp\EstoqueEntityModel\EstoqueEntityModel\obj\Debug\EstoqueEntityModel.pdb
-C:\Users\rodrigo\Documents\Pos\DM113\SOAPwithWCF_CSharp\EstoqueEntityModel\EstoqueEntityModel\obj\Debug\EstoqueEntityModel.csprojResolveAssemblyReference.cache

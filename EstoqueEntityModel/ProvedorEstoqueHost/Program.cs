@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 using System.ServiceModel;
 using Products;
 
-
-
 namespace ProvedorEstoqueHost
 {
     class Program

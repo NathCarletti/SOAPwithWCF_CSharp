@@ -21,10 +21,8 @@ namespace Products
         [DataMember]
         public int EstoqueProduto;
     }
-}
-namespace Products
-{
-    [ServiceContract]
+
+    [ServiceContract(Namespace = "http://projetoavaliativo.dm113/01")]
     public interface IServiceEstoque
     {
         // Get all products
@@ -32,7 +30,7 @@ namespace Products
         List<ProductData> ListProducts();
 
         [OperationContract]
-        bool IncluirProduto();
+        bool IncluirProduto(ProductData productData);
 
         [OperationContract]
         bool RemoverProduto(string NumeroProduto);
@@ -49,7 +47,19 @@ namespace Products
         [OperationContract]
         ProductData VerProduto(string NumeroProduto);
 
+    }
 
+    [ServiceContract(Namespace = "http://projetoavaliativo.dm113/02")]
+    public interface IServicoEstoqueV2
+    {
+        [OperationContract]
+        bool AdicionarEstoque(String numeroProduto, int quantidade);
+
+        [OperationContract]
+        bool RemoverEstoque(String numeroProduto, int quantidade);
+
+        [OperationContract]
+        int ConsultarEstoque(String numeroProduto);
     }
 
 }

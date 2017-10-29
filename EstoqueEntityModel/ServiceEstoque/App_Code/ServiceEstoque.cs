@@ -3,39 +3,32 @@ using System.Collections.Generic;
 using System.ServiceModel.Activation;
 using EstoqueEntityModel;
 using EstoqueEntityModel.Migrations;
+using System.Linq;
+using System.Runtime.Serialization;
+using System.ServiceModel;
+using System.ServiceModel.Web;
+using System.Text;
+
 namespace Products
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Runtime.Serialization;
-    using System.ServiceModel;
-    using System.ServiceModel.Web;
-    using System.Text;
-    using System.ServiceModel.Activation;
-
-    namespace Products
+    // Data contract describing the details of a product passed to client applications
+    /*[DataContract]
+    public class ProductData
     {
-        // Data contract describing the details of a product passed to client applications
-        [DataContract]
-        public class ProductData
-        {
-            [DataMember]
-            public string NumeroProduto;
-            [DataMember]
-            public string NomeProduto;
-            [DataMember]
-            public string DescricaoProduto;
-            [DataMember]
-            public int EstoqueProduto;
-        }
-    }
+        [DataMember]
+        public string NumeroProduto;
+        [DataMember]
+        public string NomeProduto;
+        [DataMember]
+        public string DescricaoProduto;
+        [DataMember]
+        public int EstoqueProduto;
+    }*/
 
     // WCF service that implements the service contract // This implementation performs minimal error checking and exception handling
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
-    public class ServiceEstoque : IServiceEstoque
-    {
-
+    public class ServiceEstoque : IServiceEstoque, IServicoEstoqueV2
+    {//foi? ach0 que sim rsrs
         public List<ProductData> ListProducts()
         {
             ProductData productData = null;
@@ -71,14 +64,14 @@ namespace Products
 
         public bool IncluirProduto(ProductData productData)
         {
-           // ProductData productData = null;
+            // ProductData productData = null;
             List<string> productsList = new List<string>();
             try
             {
                 using (ProvedorEstoque database = new ProvedorEstoque())
                 {
                     ProdutoEstoque produtoEstoque = new ProdutoEstoque();
-                    
+
                     produtoEstoque.NumeroProduto = productData.NomeProduto;
                     produtoEstoque.NumeroProduto = productData.NomeProduto;
                     produtoEstoque.DescricaoProduto = productData.DescricaoProduto;
@@ -95,8 +88,10 @@ namespace Products
             return true;
         }
 
-        public bool RemoverProduto(string NumeroProduto) {
-            return true; }
+        public bool RemoverProduto(string NumeroProduto)
+        {
+            return true;
+        }
 
         public int ConsultarEstoque(string NumeroProduto)
         {
@@ -124,8 +119,8 @@ namespace Products
                 using (ProvedorEstoque database = new ProvedorEstoque())
                 {
                     string productID = (from p in database.ProdutoE
-                                     where String.Compare(p.NumeroProduto, NumeroProduto)==0
-                                     select p.NumeroProduto).First();
+                                        where String.Compare(p.NumeroProduto, NumeroProduto) == 0
+                                        select p.NumeroProduto).First();
                     ProdutoEstoque estoque = database.ProdutoE.First(pi => pi.NumeroProduto == productID);
                     estoque.EstoqueProduto = quantidade;
                     database.ProdutoE.Add(estoque);
@@ -151,16 +146,16 @@ namespace Products
                 using (ProvedorEstoque database = new ProvedorEstoque())
                 {
                     ProdutoEstoque matchingProduct = database.ProdutoE.First(
-                             p => String.Compare(p.NumeroProduto, NumeroProduto) == 0);
-                        productData = new ProductData()
-                        {
-                            NumeroProduto = matchingProduct.NumeroProduto,
-                            NomeProduto = matchingProduct.NomeProduto,
-                            DescricaoProduto = matchingProduct.DescricaoProduto,
-                            EstoqueProduto = matchingProduct.EstoqueProduto
-                        };
-                    }
+                                p => String.Compare(p.NumeroProduto, NumeroProduto) == 0);
+                    productData = new ProductData()
+                    {
+                        NumeroProduto = matchingProduct.NumeroProduto,
+                        NomeProduto = matchingProduct.NomeProduto,
+                        DescricaoProduto = matchingProduct.DescricaoProduto,
+                        EstoqueProduto = matchingProduct.EstoqueProduto
+                    };
                 }
+            }
             catch
             {
                 // Ignore exceptions in this implementation
@@ -169,7 +164,7 @@ namespace Products
         }
 
     }
+    
 }
-
 
 
