@@ -10,22 +10,8 @@ using System.Text;
 
 namespace Products
 {
-    // Data contract describing the details of a product passed to client applications
-    /*[DataContract]
-    public class ProductData
-    {
-        [DataMember]
-        public string NumeroProduto;
-        [DataMember]
-        public string NomeProduto;
-        [DataMember]
-        public string DescricaoProduto;
-        [DataMember]
-        public int EstoqueProduto;
-    }*/
-
-    // WCF service that implements the service contract // This implementation performs minimal error checking and exception handling
-    [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
+    
+   [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
     public class ServiceEstoque : IServiceEstoque, IServicoEstoqueV2
     {
         public List<ProductData> ListProducts()
@@ -34,10 +20,8 @@ namespace Products
             List<ProductData> productsList = new List<ProductData>();
             try
             {
-                // Connect to the ProductsModel database
                 using (ProvedorEstoque database = new ProvedorEstoque())
                 {
-                    // Fetch the products in the database
                     List<ProdutoEstoque> products = (from p in database.ProdutoE select p).ToList();
                     foreach (ProdutoEstoque p in products)
                     {
@@ -63,7 +47,6 @@ namespace Products
 
         public bool IncluirProduto(ProductData productData)
         {
-            // ProductData productData = null;
             List<string> productsList = new List<string>();
             try
             {
@@ -89,7 +72,23 @@ namespace Products
 
         public bool RemoverProduto(string NumeroProduto)
         {
+            try
+            {
+                using (ProvedorEstoque database = new ProvedorEstoque())
+                {
+                    ProdutoEstoque matchingProduct = database.ProdutoE.First(
+                        p => String.Compare(p.NumeroProduto, NumeroProduto) == 0);
+
+                    database.ProdutoE.Remove(matchingProduct);
+                    database.SaveChanges();
+                }
+            }
+            catch
+            {
+                return false;
+            }
             return true;
+
         }
 
         public int ConsultarEstoque(string NumeroProduto)
@@ -117,12 +116,10 @@ namespace Products
             {
                 using (ProvedorEstoque database = new ProvedorEstoque())
                 {
-                    string productID = (from p in database.ProdutoE
-                                        where String.Compare(p.NumeroProduto, NumeroProduto) == 0
-                                        select p.NumeroProduto).First();
-                    ProdutoEstoque estoque = database.ProdutoE.First(pi => pi.NumeroProduto == productID);
-                    estoque.EstoqueProduto = quantidade;
-                    database.ProdutoE.Add(estoque);
+                    ProdutoEstoque matchingProduct = database.ProdutoE.First(
+                        p => String.Compare(p.NumeroProduto, NumeroProduto) == 0);
+
+                    matchingProduct.EstoqueProduto = quantidade + matchingProduct.EstoqueProduto;
 
                     database.SaveChanges();
                 }
@@ -134,7 +131,26 @@ namespace Products
             return true;
         }
 
-        public bool RemoverEstoque(string NumeroProduto, int quantidade) { return true; }
+        public bool RemoverEstoque(string NumeroProduto, int quantidade) {
+            try
+            {
+                using (ProvedorEstoque database = new ProvedorEstoque())
+                {
+                    ProdutoEstoque matchingProduct = database.ProdutoE.First(
+                        p => String.Compare(p.NumeroProduto, NumeroProduto) == 0);
+
+                    matchingProduct.EstoqueProduto = matchingProduct.EstoqueProduto - quantidade;
+
+                    database.SaveChanges();
+                }
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+
+        }
 
         public ProductData VerProduto(string NumeroProduto)
         {

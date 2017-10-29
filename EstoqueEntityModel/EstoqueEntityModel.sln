@@ -38,6 +38,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EstoqueCliente", "EstoqueCl
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EstoqueClienteV2", "EstoqueClienteV2\EstoqueClienteV2.csproj", "{5F10F7B7-6A8F-42B6-9A5C-6BF498A06791}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C7B92EFB-5358-4BAF-96C8-B6BD82CAB2FC} = {C7B92EFB-5358-4BAF-96C8-B6BD82CAB2FC}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
